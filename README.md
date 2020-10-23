@@ -1,5 +1,20 @@
 # Optimizing an ML Pipeline in Azure
 
+
+__________                  __          _____                    __              __   .__                                         
+\______   \_____     ____  |  | __     /     \  _____   _______ |  | __  ____  _/  |_ |__|  ____     ____                         
+ |    |  _/\__  \   /    \ |  |/ /    /  \ /  \ \__  \  \_  __ \|  |/ /_/ __ \ \   __\|  | /    \   / ___\                        
+ |    |   \ / __ \_|   |  \|    <    /    Y    \ / __ \_ |  | \/|    < \  ___/  |  |  |  ||   |  \ / /_/  >                       
+ |______  /(____  /|___|  /|__|_ \   \____|__  /(____  / |__|   |__|_ \ \___  > |__|  |__||___|  / \___  /                        
+        \/      \/      \/      \/           \/      \/              \/     \/                 \/ /_____/                         
+_________                                   .__                         _____                   .__                   .__         
+\_   ___ \ _____     _____  ______  _____   |__|   ____    ____        /  _  \    ____  _____   |  |   ___.__.  ______|__|  ______
+/    \  \/ \__  \   /     \ \____ \ \__  \  |  |  / ___\  /    \      /  /_\  \  /    \ \__  \  |  |  <   |  | /  ___/|  | /  ___/
+\     \____ / __ \_|  Y Y  \|  |_> > / __ \_|  | / /_/  >|   |  \    /    |    \|   |  \ / __ \_|  |__ \___  | \___ \ |  | \___ \ 
+ \______  /(____  /|__|_|  /|   __/ (____  /|__| \___  / |___|  /    \____|__  /|___|  /(____  /|____/ / ____|/____  >|__|/____  >
+        \/      \/       \/ |__|         \/     /_____/       \/             \/      \/      \/        \/          \/          \/ 
+
+
 ## Overview
 
 This project is part of the Udacity Azure ML Nanodegree.
@@ -30,8 +45,8 @@ _The best performing model was VotingEsemble, even superior to the scikit-learn 
 
 ## Pipeline comparison
 
-**For this classification problem and this dataset, in particular, the difference between AutoML and Sckit-learn are insignificant in the result, however, it can be seen that the use of AutoML allows to have a faster idea of ​​which model works better and then this model is You can apply hyperparameter tuning to it with the help of Hyperdrive.**
+**For this classification problem and this dataset, in particular, the difference between AutoML and Sckit-learn are insignificant in the result, however, it can be seen that the use of AutoML allows to have a faster idea of which model works better and then this model is You can apply hyperparameter tuning to it with the help of Hyperdrive.**
 
 ## Future work
 
-**For future work, it would be interesting to apply Hypedriver to the five best AutoML result models, in addition, it would also be interesting to test Hypedriver with other parameters such as "solver" and "penalty"..**
+**For future work, it would be interesting to apply Hypedriver to the five best AutoML result models, in addition, it would also be interesting to test Hypedriver with other parameters such as "solver" and "penalty".**
