@@ -19,20 +19,20 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 run = Run.get_context()
 client = ExplanationClient.from_run(run)
 
-ds = TabularDatasetFactory.from_delimited_files("https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv", validate=True, include_path=False, infer_column_types=True, set_column_types=None, separator=',', header=True, partition_format=None, support_multi_line=False, empty_as_string=False)
+data_train = pd.read_csv('data/data_balanced.csv')  
+data_test = pd.read_csv('data/data_validation.csv')  
 
-x, y = clean_data(ds)
-#x.drop('y', inplace=True, axis=1)
-#data_cleaned = x
-#data_cleaned['y'] = y
-#x.head()
+y_train = data_train["y"]
+data_train.drop("y", inplace=True, axis=1)
+data_train.drop("Unnamed: 0", inplace=True, axis=1)
+x_train = data_train
 
-feature_names = list(x.columns)
+y_test = data_test["y"]
+data_test.drop("y", inplace=True, axis=1)
+data_test.drop("Unnamed: 0", inplace=True, axis=1)
+x_test = data_test
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.33, random_state=42);
-
-#save x_test & y_test
-#x.head()
+feature_names = list(x_train.columns)
 
 def main():
     # Add arguments to script
