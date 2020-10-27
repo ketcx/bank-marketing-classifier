@@ -12,37 +12,37 @@
 <summary>Show/Hide</summary>
 <br>
 
-1. [Introduction](#intro)
-2. [Business Problem ](#problem)
-3. [Data](#data)
-4. [Methodology](#method)
-5. [Results and Discussion](#results)
-6. [Conclusion](#conclusion)
-7. [Proof of cluster clean up](#cleanup)
+1. [Introduction](#1-introduction)
+2. [Business Problem ](#2-business-problem)
+3. [Data](#3-data)
+4. [Methodology](#4-methodology)
+5. [Results and Discussion](#5-results-and-discussion)
+6. [Conclusion](#6-conclusion)
+7. [Proof of cluster clean up](#7-proof-of-cluster-clean-up)
 </details>
 
 ## 1. Introduction
 
 <details>
-<a name="#intro"></a>
+<a name="#1-introduction"></a>
 <summary>Show/Hide</summary>
 <br>
   <p>This project is part of the Udacity Azure Machine Learning Nanodegree. In this project, we build and optimize an Azure ML pipeline using the Python SDK and a provided Scikit-learn model. This model is then compared to an Azure AutoML run.
   </p>
-  <p>The specific project is based on analyzing the data that we have from the users to know if the user will subscribe or not to the service offered, which is a term deposit.</p>
+  <p>The specific project is based on analyzing the data that we have from the clients to determine if they will subscribe or not to the service offered, which is a term deposit.</p>
 </details>
 
 ## 2. Business Problem
 
 <details>
-<a name="#problem"></a>
+<a name="#2-business-problem"></a>
 <summary>Show/Hide</summary>
 <br>
 <p>
-  Customer acquisition is always a non-trivial problem in any company, regardless of the channel used to acquire customers, capture leads and convert them into customers of the company's products is a task that requires time and money.
+  Customer acquisition is always a non-trivial problem in any company, regardless of the channel used to acquire customers, capture leads and convert them into customers of the company's products is a task that requires time and money. Therefore, companies would like to be able to predict if a given client will subscribe into a given product offered through a phone call. 
 </p> 
 <p>
-Next we are going to explore a set of data related to direct marketing campaigns (phone calls) of a Portuguese banking institution. The problem we want to solve is to predict through the information if a client is going to subscribe or not a term deposit offered through a phone call.
+Specifically, we explore a set of data related to direct marketing campaigns (phone calls) of a Portuguese banking institution. The problem we want to solve is to predict through the information if a client is going to subscribe or not a term deposit offered through a phone call.
 </p>
 
 </details>
@@ -50,7 +50,7 @@ Next we are going to explore a set of data related to direct marketing campaigns
 ## 3. Data
 
 <details>
-<a name="#data"></a>
+<a name="#3-data"></a>
 <summary>Show/Hide</summary>
 <br>
   <p>The data is related with direct marketing campaigns of a Portuguese banking institution. The marketing campaigns were based on phone calls.
@@ -59,11 +59,11 @@ Next we are going to explore a set of data related to direct marketing campaigns
 The data is related with direct marketing campaigns (phone calls) of a Portuguese banking institution. The classification goal is to predict if the client will subscribe to a term deposit (variable y).
 </p>
 
-\*For our work we will use the link offered by the Nanodegree that is located at:
-[https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)
+- For our work we will use the link offered by the Nanodegree that is located at:
+  [https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv)
 
-\*But a variant of this data set can be found in:
-[https://archive.ics.uci.edu/ml/datasets/Bank+Marketing](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
+- A variant of this data set can be found in:
+  [https://archive.ics.uci.edu/ml/datasets/Bank+Marketing](https://archive.ics.uci.edu/ml/datasets/Bank+Marketing)
 
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/data1.png" width=600>
@@ -73,40 +73,42 @@ The data is related with direct marketing campaigns (phone calls) of a Portugues
 ## 4. Methodology
 
 <details>
-<a name="#method"></a>
+<a name="#4-methodology"></a>
 <summary>Show/Hide</summary>
 <br>
-  <p>In this project, our objective is to be able to predict if a client is going to subscribe or not to a long-term deposit. For this, we are going to use a scikit-learn model and with the help of the Python SDK we are going to optimize its hyperparameters through HyperDrive Once that is done, we are going to apply AutoML to the dataset and finally, we are going to compare the best model thrown from AutoML with the linear regression model optimized with the help of HypeDriver.</p>
+  <p>In this project, our objective is to be able to predict if a client is going to subscribe or not to a long-term deposit. For this, we are going to use a scikit-learn model and with the help of the Python SDK we are going to optimize its hyperparameters through HyperDrive. Then, we are going to apply AutoML to the dataset. inally, we are going to compare the best model thrown from AutoML with the linear regression model optimized with the help of HypeDriver.
+</p>
   <p>In a detailed way, we will follow the following steps:</p>
 
 1. Inside the train.py file, we are going to load our dataset with the help of TabularDatasetFactory.
 
-2. Then we are going to clean our dataset for better handling, for this we are going to help the clean_data function (located in cleandata.py). With this function, we are going with the help of pandas to eliminate null values ​​if they exist and transform some columns as "housing" for a better result of our model.
+2. Then, we are going to clean our dataset for better handling, for this we are going to help the clean_data function (located in cleandata.py). With this function, using pandas, we are going to eliminate null values ​​if they exist, and transform some columns as "housing" for a better result of our model.
 
 3. Once the ETL is passed, we are going to divide our data into training data and test data (or validation).
 
-4. In this step with the help of Azure ML and HyperDriver, we are going to optimize our model specifically in the parameters of Regularization Strength (C) and Max iterations (max_iter). Also in our configuration file, we pass our early stopping policy and our estimator with our model.
+4. In this step, usingAzure ML and HyperDriver, we are going to optimize our model specifically in the parameters of Regularization Strength (C) and Max iterations (max_iter). Also, in our configuration file, we pass our early stopping policy and our estimator with our model.
 
 5. Once HyperDriver finishes optimizing our model, we will register the best model and analyze the results of this compared to the others, for this we will help with accuracy.
 
-6. Optimized our Linear Regression model with HyperDrive now we are going to implement AutoML to our dataset, for this we create an experiment passing it as parameters: our input data, our validation data, the type of task that in this case is the classification ( yes or no), the column that we want to predict, which in this case is "y", our metric that in order to compare with the previous model we will use "accuracy", we specify a timeout time and finally, in this case, I will specify two models that I don't want AutoML to use in its search for the best model for our problem.em.
+6. After the optimization of our Linear Regression model with HyperDrive, we will implement AutoML to our dataset, for this we create an experiment passing it as parameters: our input data, our validation data, the type of task that in this case is the classification ( yes or no), the column that we want to predict, which in this case is "y", our metric that in order to compare with the previous model we will use "accuracy", we specify a timeout time and finally, in this case, we will specify two models that we do nott want AutoML to use in its search for the best model for our problem.
 
-7. Once our experiment is finished, we register the best model and compare it with our previous result.
+7. Once our experiment is finished, we will register the best model and compare it with our previous result.
 
-8. Analyzing the Confusion Matrix of both models we see that the model has biases due to the imbalance of our dataset. For this, we use the SMOTE technique applied in the "y" column and repeat the experiments already carried out.
+8. When analyzing the Confusion Matrix of both models we observe that the model has biases due to the imbalance of our dataset. For this, we use the SMOTE technique applied in the "y" column and repeat the experiments already carried out.
 
 </details>
 
 ## 5. Results and Discussion
 
 <details>
-<a name="#results"></a>
+<a name="#5-results-and-discussion"></a>
 <summary>Show/Hide</summary>
 <br>
 <p>
-  As a result, we can say that there is not much difference between the two final models, although the best model produced by AutoML predicts slightly better, the difference is not significant and it must be validated how both models generalize, but let's see our result in detail.
+  As a result, we can say that there is not much difference between the two final models, although the best model produced by AutoML predicts slightly better.Since the difference is not significant, it must be validated how both models generalize. 
 </p>
-<p>For our model resulting from the optimization of parameters with HyperDrive, we have that the four results offered similar performances with accuracy metrics of 91% and a training execution time between 1:34 - 1:41.</p>
+<p>
+For our model resulting from the optimization of parameters with HyperDrive, we have that the four results offered similar performances with accuracy metrics of 91% and a training execution time between 1:34 - 1:41.</p>
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/h001.png" width=600>
 </p>
@@ -116,7 +118,7 @@ The data is related with direct marketing campaigns (phone calls) of a Portugues
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/h003.png" width=600>
 </p>
-<p>Regarding the early termination policy, an early termination policy was defined based on slack criteria and a frequency for evaluation. This early termination policy prevents experiments from running for a long time and using resources unnecessarily.
+<p>Regarding the early termination policy, it was defined based on slack criteria and a frequency for evaluation. This early termination policy prevents experiments from running for a long time and using resources unnecessarily.
 </p>
 <p>In machine learning, a hyperparameter is a parameter whose value is used to control the learning process.</p>
 <p>
@@ -137,9 +139,9 @@ In the case, the hyperparameters of the best model were the following:
 
 2. <strong>Number of Employees – Quarterly indicator:</strong> Number of employed persons for a quarter.
 
-3. <strong>Employment variation rate:</strong> Is referring to cyclical employment variation.
+3. <strong>Employment variation rate:</strong> It refers to cyclical employment variation.
 
-4. <strong>3 Month euribor:</strong> Euribor is short for Euro Interbank Offered Rate. The Euribor rates are based on the interest rates at which a panel of European banks borrow funds from one another.
+4. <strong>Three Month euribor:</strong> Euribor is short for Euro Interbank Offered Rate. The Euribor rates are based on the interest rates at which a panel of European banks borrow funds from one another.
 
 5. <strong>Consumer price index:</strong> The Consumer Price Index (CPI) is a measure of the average change over time in the prices paid by urban consumers for a market basket of consumer goods and services.
 
@@ -160,9 +162,10 @@ In the case, the hyperparameters of the best model were the following:
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/h007.png" width=600>
 </p>
 
-<p>Now we are going to analyze our models generated by AutoML.</p>
+<p>Now we are going to analyze our models generated by AutoML.
+</p>
 
-<p>To begin with, one of the things that called me the most about AutoML was that it warned me that my dataset had a balance problem which increased the probability of bias, we will see it in detail later.</p>
+<p>To begin with, one of the things that called our attention was that AutoML warned us that the dataset had a balance problem which increased the probability of bias, we will see it in detail later.</p>
 
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/a001.png" width=600>
@@ -170,7 +173,7 @@ In the case, the hyperparameters of the best model were the following:
 
 <p>Automated machine learning, also referred to as automated ML or AutoML, is the process of automating the time consuming, iterative tasks of machine learning model development.</p>
 <p>AutoML allows you to train, evaluate, improve, and deploy models based on your data, which allows us to test and discard hundreds of models in the time it would take to test one.</p>
-<p>In this particular case AutoML tested my dataset with about 32 different models.</p>
+<p>In this particular case AutoML tested the dataset with around 32 different models.</p>
 
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/a002.png" width=600>
@@ -260,10 +263,10 @@ In the case, the hyperparameters of the best model were the following:
   </p>
 </details>
 
-## Conclusion
+## 6. Conclusion
 
 <details>
-<a name="#conclusion"></a>
+<a name="#6-conclusion"></a>
 <summary>Show/Hide</summary>
 <br>
   <p>The end result of optimizing the hyperparameters with HyperDrive and generating a model with AutoML is quite similar. During the experiments carried out with the dataset, the models gave a prediction of 91% accuracy.</p>
@@ -282,10 +285,10 @@ In the case, the hyperparameters of the best model were the following:
 
 </details>
 
-## Proof of cluster clean up
+## 7. Proof of cluster clean up
 
 <details>
-<a name="#cleanup"></a>
+<a name="#7-proof-of-cluster-clean-up"></a>
 <summary>Show/Hide</summary>
 <br>
   <p align="center">
