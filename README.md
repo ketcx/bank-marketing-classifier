@@ -96,6 +96,10 @@ The data is related with direct marketing campaigns (phone calls) of a Portugues
 
 8. When analyzing the Confusion Matrix of both models we observe that the model has biases due to the imbalance of our dataset. For this, we use the SMOTE technique applied in the "y" column and repeat the experiments already carried out.
 
+<p>
+About Tune hyperparameters, the logistic regression used does not really have any critical hyperparameters to fit.
+</p><p>
+That said, for the experiment we use the parameter C controls the intensity of the penalty, which for this type of algorithm can be effective. The other parameter we used was the max_iter, which is the number of iterations that the logistic regression classifier solver can go through before stopping. The objective is to arrive at a "stable" solution for the parameters of the logistic regression model. With this we can measure how many interactions are necessary to obtain a good precision in a reasonable time. If your max_iter is too low, you may not reach an optimal solution. If your value is too high, you can essentially wait forever for a low-precision solution.</p>
 </details>
 
 ## 5. Results and Discussion
@@ -180,7 +184,11 @@ In the case, the hyperparameters of the best model were the following:
 </p>
 
 <p>For our model resulting from implementing AutoML to our dataset, the precision metrics were between 72% and 91% with an execution time between 0:29 seconds and 0:45 seconds</p>
-<p>The best model was the VottingEsemble followed by the MaxAbsScaler, LightBGM. However both a 91% accuracy similar to our HyperDrive optimized model.</p>
+<p>The best model was the VottingEsemble followed by the MaxAbsScaler, LightBGM. However both a 91% accuracy similar to our HyperDrive optimized model.
+</p><p>
+Regarding the AutoML result, it is consistent that the best model was a voting ensemble model. A voting ensemble involves summing the predictions made by classification models or averaging the predictions made by regression models.
+</p>
+
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/a003.png" width=600>
 </p>
