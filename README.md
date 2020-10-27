@@ -122,7 +122,8 @@ The data is related with direct marketing campaigns (phone calls) of a Portugues
 <p>
 In the case, the hyperparameters of the best model were the following:
 </p>
-- <strong>max_iter=100</strong>| Maximum number of iterations of the optimization algorithm
+
+- <strong>max_iter=100</strong>| Maximum number of iterations of the optimization algorithm.
 
 - <strong>C= 73.5313</strong> | Each of the values in C describes the inverse of regularization strength. Like in support vector machines, smaller values specify stronger regularization.
 
@@ -149,10 +150,11 @@ In the case, the hyperparameters of the best model were the following:
 <p>Regarding the performance of our "best_run" we can see that the model manages to classify the "no" very well but still has problems to classify the "yes" correctly.</p>
 
 </p>In detail:</p>
-* 98% of the "no" were classified correctly.
-* 2% of the "no" were classified as "yes" incorrectly.
-* 40% of the "yes" were classified correctly.
-* 60% of the "yes" were classified as "no" incorrectly.
+
+- 98% of the "no" were classified correctly.
+- 2% of the "no" were classified as "yes" incorrectly.
+- 40% of the "yes" were classified correctly.
+- 60% of the "yes" were classified as "no" incorrectly.
 
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/h007.png" width=600>
