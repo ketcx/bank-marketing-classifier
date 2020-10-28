@@ -233,6 +233,27 @@ Regarding the AutoML result, it is consistent that the best model was a voting e
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/a005.png" width=600>
 </p>
+
+<p><strong>The benefits of the chosen parameter sampler</strong></p>
+<p>Azure Machine Learning supports the following parameter sampling methods:</p>
+
+- Random sampling: supports discrete and continuous hyperparameters. It supports early termination of low-performance runs.
+
+- Grid sampling: supports discrete hyperparameters. Use grid sampling if you can budget to exhaustively search over the search space. Supports early termination of low-performance runs.
+
+- Bayesian sampling: only supports choice, uniform, and quniform distributions over the search space. Bayesian sampling is recommended if you have enough budget to explore the hyperparameter space.
+
+<p>Our selection of RandomSampling is motivated because Regularization Strength is a continuous hyperparameter. In other words, random sampling allowed my parameters to be initialized with both discrete and continuous values, and it also allowed for early political termination. This choice gave us an appropriate cost/benefit result.
+</p>
+
+<p>
+As a basis for future work, you can read more about the difference between Grind Sampling and Random Sampling in James Bergstra & Yoshua Bengio's article: 
+</p>
+[Random Search for Hyper-Parameter Optimization](https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf)
+
+<p><strong>Handle imbalanced data</strong></p>
+<p>The variable y is extremely unbalanced, this causes bias, this can be seen in the confusion matrix.</p>
+
 <p><strong>Handle imbalanced data</strong></p>
 <p>The variable y is extremely unbalanced, this causes bias, this can be seen in the confusion matrix.</p>
 <p align="center">
