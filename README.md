@@ -248,8 +248,8 @@ Regarding the AutoML result, it is consistent that the best model was a voting e
 
 <p>
 As a basis for future work, you can read more about the difference between Grind Sampling and Random Sampling in James Bergstra & Yoshua Bengio's article: 
+  <i>Random Search for Hyper-Parameter Optimization: </i> https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf
 </p>
-[Random Search for Hyper-Parameter Optimization](https://www.jmlr.org/papers/volume13/bergstra12a/bergstra12a.pdf)
 
 <p><strong>Handle imbalanced data</strong></p>
 <p>The variable y is extremely unbalanced, this causes bias, this can be seen in the confusion matrix.</p>
