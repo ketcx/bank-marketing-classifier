@@ -253,9 +253,6 @@ As a basis for future work, you can read more about the difference between Grind
 
 <p><strong>Handle imbalanced data</strong></p>
 <p>The variable y is extremely unbalanced, this causes bias, this can be seen in the confusion matrix.</p>
-
-<p><strong>Handle imbalanced data</strong></p>
-<p>The variable y is extremely unbalanced, this causes bias, this can be seen in the confusion matrix.</p>
 <p align="center">
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/balanced001.png" width=600>
 </p>
