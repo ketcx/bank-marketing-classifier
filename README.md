@@ -254,7 +254,7 @@ As a basis for future work, you can read more about the difference between Grind
 <p><strong>Handle imbalanced data</strong></p>
 <p>The variable y is extremely unbalanced, this causes bias, this can be seen in the confusion matrix.</p>
 <p align="center">
-  <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/balanced001.png" width=600>
+  <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/balanced003.png" width=600>
 </p>
 <p>In the handle-imbalanced-data.ipynb notebook included in this project, you can see how the problem is corrected and the dataset is created through the Synthetic Minority Oversampling Technique, or SMOTE for short.</p>
 
@@ -262,7 +262,7 @@ As a basis for future work, you can read more about the difference between Grind
   <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/balanced002.png" width=600>
 </p>
 <p align="center">
-  <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/balanced003.png" width=600>
+  <img src="https://github.com/ketcx/bank-marketing-classifier/blob/master/data/balanced001.png" width=600>
 </p>
 
 <p>Once the training data was balanced (we left the unbalanced validation date) we ran our experiments for both our experiments and the results were the following:</p>
